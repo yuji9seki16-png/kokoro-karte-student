@@ -135,7 +135,7 @@ const Q=[
 {id:3,s:1,type:'ffs',q:"毎日決まってやること（起きる時間・勉強のやり方など）について、どう感じる？",opts:[
   {jp:"安心する。いつも通りだと落ち着いて動ける",v:{ac:1,ma:5,exp:1,di:2,co:2}},
   {jp:"大切だとはわかるが、飽きてくる",v:{ac:2,ma:2,exp:3,di:2,co:2}},
-  {jp:"いつものやり方は守りながら、少しずつ良くしていきたい",v:{ac:2,ma:3,exp:2,di:4,co:3}},
+  {jp:"いつものやり方は守りながら、少しずつ良くしていきたい",v:{ac:2,ma:4,exp:2,di:3,co:3}},
   {jp:"しばらくすると変えたくなる。同じことを続けるのは苦手",v:{ac:2,ma:1,exp:4,di:2,co:2}},
   {jp:"気づいたら全く違うことをしている。決まったやり方自体が続かない",v:{ac:1,ma:1,exp:5,di:1,co:1}},
 ]},
@@ -207,7 +207,7 @@ const Q=[
   {jp:"話を聞きながら、解決策を考え始めてしまう",v:{ac:2,ma:2,exp:3,di:4,co:3}},
   {jp:"相手の言葉をまず全部聞いてから、自分の考えを伝える",v:{ac:4,ma:3,exp:2,di:3,co:2}},
   {jp:"自分の似た経験と重ねて、共感しながら聞く",v:{ac:3,ma:2,exp:2,di:2,co:2}},
-  {jp:"相手が求めていることが何かを確認してから動く",v:{ac:3,ma:2,exp:2,di:4,co:3}},
+  {jp:"相手が求めていることが何かを確認してから動く",v:{ac:4,ma:3,exp:2,di:2,co:3}},
 ]},
 {id:14,s:2,type:'c',q:"誰かにお礼やほめ言葉を言われたとき、あなたはどうなる？",opts:[
   {jp:"もっと認めてほしい、という気持ちが出てくる",c:125},
@@ -240,7 +240,7 @@ const Q=[
 {id:18,s:2,type:'ffs',q:"クラスや部活の雰囲気が悪くなっているとき、あなたはどうなりがち？",opts:[
   {jp:"自然と場を和ませようとする言葉や行動が出てくる",v:{ac:5,ma:2,exp:2,di:1,co:2}},
   {jp:"何が原因かを把握しようとする",v:{ac:2,ma:2,exp:2,di:5,co:3}},
-  {jp:"自分には関係ない問題として、距離を置く",v:{ac:1,ma:2,exp:3,di:2,co:2}},
+  {jp:"自分には関係ない問題として、距離を置く",v:{ac:1,ma:2,exp:3,di:5,co:2}},
   {jp:"誰かが傷ついていないかを真っ先に気にする",v:{ac:4,ma:2,exp:2,di:2,co:2}},
   {jp:"解決策を提案して、早く前に進めるようにしようとする",v:{ac:2,ma:2,exp:3,di:3,co:3}},
 ]},
@@ -372,8 +372,8 @@ const Q=[
 ]},
 {id:37,s:4,type:'ffs',q:"自分の得意分野について、どう感じている？",opts:[
   {jp:"一つのことを深く掘り下げるのが好き。その道を極めたい",v:{ac:1,ma:3,exp:1,di:3,co:5}},
-  {jp:"幅広くできる方が安心。一つに絞るより何でもできる方がいい",v:{ac:2,ma:3,exp:3,di:2,co:1}},
-  {jp:"得意なことを持ちながら、他の分野とつなぐことに面白さを感じる",v:{ac:2,ma:2,exp:3,di:3,co:3}},
+  {jp:"幅広くできる方が安心。一つに絞るより何でもできる方がいい",v:{ac:2,ma:2,exp:4,di:2,co:1}},
+  {jp:"得意なことを持ちながら、他の分野とつなぐことに面白さを感じる",v:{ac:2,ma:2,exp:4,di:3,co:5}},
   {jp:"得意分野はあるが、それに固執したくない",v:{ac:2,ma:2,exp:4,di:2,co:2}},
   {jp:"自分にしかできない領域を持ちたい、という意識が強い",v:{ac:1,ma:2,exp:2,di:3,co:4}},
 ]},
@@ -410,7 +410,7 @@ const Q=[
   {jp:"人を動かした・場を作った・影響を与えた",v:{ex:1,in:5,rb:1,st:1}},
   {jp:"つながった・育てた・場が和やかになった",v:{ex:1,in:1,rb:5,st:1}},
   {jp:"見抜いた・戦略を描いた・理解が深まった",v:{ex:1,in:1,rb:1,st:5}},
-  {jp:"発見した・学んだ・アイデアが生まれた",v:{ex:1,in:1,rb:1,st:4}},
+  {jp:"整えた・競り勝った・一人ひとりを活かした・考え抜いた",v:{ex:2,in:2,rb:2,st:2}},
 ]},
 {id:43,s:5,type:'sn',q:"物事を記憶したり学んだりするとき、自分に一番近いのは？",opts:[
   {jp:"具体的な例や体験に結びつけると覚えやすい",v:1},
@@ -585,8 +585,8 @@ const THEME_MAP={
     "とにかく集めておく。捨てられない。いつか使える":{Input:5},
     "過去の事例・歴史・パターンと照らし合わせる":{Context:5},
     "複数の選択肢から最善の道筋を選び出す":{Strategic:5},
-    "構造を分析して、見えていないものを見えるようにする":{Analytical:4,Intellection:2},
-    "組み合わせて新しい何かを生み出す":{Ideation:4,Learner:2},
+    "構造を分析して、見えていないものを見えるようにする":{Analytical:4,Strategic:2},
+    "組み合わせて新しい何かを生み出す":{Ideation:4,Input:2},
   },
   // ── クロスドメイン（全4ドメインの橋渡し・補強）
   42:{
@@ -594,9 +594,10 @@ const THEME_MAP={
     "人を動かした・場を作った・影響を与えた":{Activator:3,Command:3,Communication:2},
     "つながった・育てた・場が和やかになった":{Relator:3,Developer:3,Harmony:2},
     "見抜いた・戦略を描いた・理解が深まった":{Strategic:3,Analytical:3,Futuristic:2},
-    "発見した・学んだ・アイデアが生まれた":{Learner:3,Input:3,Ideation:2},
+    "整えた・競り勝った・一人ひとりを活かした・考え抜いた":{Discipline:2,Competition:2,Individualization:2,Intellection:2},
   },
 };
+
 
 // ── ルックアップ ──────────────────────────────────
 const STAGES=[
@@ -638,6 +639,22 @@ const STAGES=[
 function getStage(s){return STAGES.find(x=>s>=x.min&&s<=x.max)||STAGES[STAGES.length-1];}
 
 const SF_NAMES={ex:"実行力",in:"影響力",rb:"人間関係",st:"戦略的思考"};
+// 4領域は上位5資質の順位の重み（5,4,3,2,1）で決める（2026-09-30・カルテPPTの calc_position と同じ考え方）
+// 以前は sf 設問の領域点の平均だったが、9問中8問はどれを選んでも領域点がほぼ同じで、Q42だけで決まっていた
+const THEME_DOMAIN={};
+Object.entries({
+  ex:'Achiever Arranger Belief Consistency Deliberative Discipline Focus Responsibility Restorative',
+  in:'Activator Command Communication Competition Maximizer SelfAssurance Significance Woo',
+  rb:'Adaptability Connectedness Developer Empathy Harmony Includer Individualization Positivity Relator',
+  st:'Analytical Context Futuristic Ideation Input Intellection Learner Strategic'
+}).forEach(([d,ts])=>ts.split(' ').forEach(t=>THEME_DOMAIN[t]=d));
+const RANK_SCORE=[5,4,3,2,1];
+// 同点の領域は「順位が上の資質が入っている領域」を先にする
+function rankDomains(topThemes){
+  const sc={ex:0,in:0,rb:0,st:0},best={ex:99,in:99,rb:99,st:99};
+  topThemes.forEach(([t],i)=>{const d=THEME_DOMAIN[t];if(d){sc[d]+=RANK_SCORE[i];best[d]=Math.min(best[d],i);}});
+  return {sc,order:Object.keys(sc).sort((a,b)=>sc[b]-sc[a]||best[a]-best[b])};
+}
 const SF_DESC={
   ex:"目標に向かって動かし続ける力。タスクを分解し、やり切ることに充実感を感じる。",
   in:"人を動かし、場を広げていく力。アイデアを外に広め、巻き込むことで力を発揮する。",
@@ -651,6 +668,24 @@ const MBTI_NAMES={
   ISTP:"巨匠",ISFP:"冒険家",ESTP:"起業家",ESFP:"エンターテイナー",
 };
 const FFS_NAMES={ac:"受容性",ma:"保全性",exp:"拡散性",di:"弁別性",co:"凝縮性"};
+
+// 34資質の順位づけ（2026-09-29）
+// 同点のとき、以前は「設問の順番が早い資質」が必ず勝っていた（5位と6位の同点は約96%の人に起きる）。
+// そのせいで後ろの設問にしか出ない資質（原点思考・自我・戦略性など）がほぼ上位5に入らなかった。
+// 同点は「その人の回答全体＋資質名」から作る番号で決める。同じ回答なら毎回同じ結果、どの資質も有利にならない。
+function tieKey(seed,name){
+  let h=2166136261;
+  const str=seed+'|'+name;
+  for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}
+  return h>>>0;
+}
+function answerSeed(answers){
+  return Object.keys(answers).sort((a,b)=>a-b).map(id=>id+':'+(answers[id]&&answers[id].jp||'')).join('/');
+}
+function rankThemes(themes,answers){
+  const seed=answerSeed(answers||{});
+  return Object.entries(themes).sort((a,b)=>b[1]-a[1]||tieKey(seed,a[0])-tieKey(seed,b[0]));
+}
 
 // FFS同点タイブレーク: 差が0.001未満のとき、MBTI軸とSF34推定テーマで微調整して順位を確定
 // 表示用ffsAは変更しない。ランキング決定専用。
@@ -687,7 +722,7 @@ function ffsAdjust(ffsA, mbti, themes){
   };
 
   const weights=[0.03,0.025,0.02,0.015,0.01];
-  Object.entries(themes).sort((a,b)=>b[1]-a[1]).slice(0,5).forEach(([theme],i)=>{
+  rankThemes(themes,state.answers).slice(0,5).forEach(([theme],i)=>{
     const f=SF_FFS[theme]; if(f) adj[f]+=weights[i];
   });
 
@@ -696,12 +731,15 @@ function ffsAdjust(ffsA, mbti, themes){
   return adjusted;
 }
 
-function getArchetype(top,second){
+// 味噌タイプ＝5つの力が揃っている人（補正後の最大−最小が MISO_SPREAD 以下）。2026-09-30 雄介さん決定
+// 線 0.33 はランダム回答で約8.3%（12タイプの均等）になる値
+const MISO_SPREAD=0.33;
+function getArchetype(top,second,balanced){
   const k=top+'_'+second;
 
   const KOJI={name:"麹タイプ",en:"Koji",kingdom:"カビ",
     science:"アスペルギルス・オリゼ（ニホンコウジカビ）。2006年に日本の「国菌」に指定された唯一の菌。自らが生み出す酵素の働きによって、食材に含まれるでんぷんをブドウ糖に、タンパク質をアミノ酸に分解し、甘みと旨みを引き出す。味噌・醤油・日本酒・甘酒・みりん——日本の発酵食品すべての起点。医薬品にも活用される。代表的な発酵食品：甘酒・かつお節・日本酒（起点として）",
-    desc:"場を整え、人の良さを引き出す存在。自分が前に出なくても全体を発酵させる力を持つ。自らの酵素（内なる力）を使って、他者の眠っている才能を人が使えるエネルギーに変換する。「この人といると自分が輝く気がする」と言われやすい。",
+    desc:"場を整え、人の良さを引き出す存在。自分が前に出なくても全体を発酵させる力を持つ。胞子で広がった先で、静かに根を張り、菌糸を伸ばし続ける。素材の良さを引き出しながら、境界線を溶かしていく。自らの酵素（内なる力）を使って、他者の眠っている才能を人が使えるエネルギーに変換する。「この人といると自分が輝く気がする」と言われやすい。",
     stress:"他者の感情を抱えすぎて自分のエネルギーが目減りする。「自分はどうしたいか」という問いを後回しにしがち。",
     growth:"個人の支援から、場そのものの設計へ。麹が増えると全体が豊かになるように、あなたの関わりが文化になる。"};
 
@@ -725,9 +763,9 @@ function getArchetype(top,second){
 
   const LACTO={name:"乳酸菌タイプ",en:"Lactobacillus",kingdom:"細菌",
     science:"地球上で最も広く分布する菌の一つ。ヨーグルト・チーズ・キムチ・ぬか床・腸内・空気中・皮膚にまでいる。酸味をもたらし腐敗を防ぐ。代表的な発酵食品：キムチ・ヨーグルト・チーズ・ぬか漬け",
-    desc:"どんな場にも順応しながら、鋭い酸味（クリティカルな視点）をもたらす。「みんないいね」の場に「でも、それってどうなの？」を一つ入れる人。いると品質が上がる。",
-    stress:"酸味が強すぎると「また否定した」と思われる。鋭さが伝わらない場でのもどかしさ。",
-    growth:"酸味と旨みのバランスを学ぶと、チームの品質管理者として圧倒的な貢献ができる。"};
+    desc:"どこにでも入り込み、入った先で自分の酸を出し続けて、場を腐らせずに守る人。新しい場に飛び込む軽やかさと、譲らない芯の両方を持つ。いつの間にか場の空気を変えていて、「あの人が来てから、ここは崩れなくなった」と言われる。",
+    stress:"自分の酸（こだわり）が合わない場に長くいると消耗する。広がりたい気持ちと守りたい芯が引っぱり合い、どっちつかずに感じることがある。",
+    growth:"酸の強さを場に合わせて加減できるようになると、どこへ行っても腐らない場をつくる人になる。"};
 
   const SHIO={name:"塩タイプ",en:"Shio",kingdom:"鉱物",
     science:"菌ではなく鉱物。浸透圧を厳密にコントロールし、腐敗菌を抑えて発酵菌だけを生かす。多すぎると菌が死に、少なすぎると腐る。「正しい量」が命。味噌・醤油・ぬか床・漬け物——すべての発酵に塩がいる。",
@@ -761,8 +799,8 @@ function getArchetype(top,second){
 
   const OKE={name:"木桶タイプ",en:"Oke",kingdom:"器",
     science:"杉の木桶には固有の菌叢が棲みつき、何十年もかけて「その蔵の味」を作る。菌ではなく器。継続と場の保存が存在意義。",
-    desc:"継続と安定が強み。変わらず場を保ち続けることで、時間をかけて深みを生む器そのもの。「この人がいると安心する」と言われる。スピードより深度。",
-    stress:"変化を求められる場で消耗する。「もっと新しいことを」という圧力が苦手。",
+    desc:"継続と安定が強み。変わらず場を保ち続けることで、時間をかけて深みを生む器そのもの。守る器だからこそ、中の熱を逃がさず、発酵の勢いを加速させる。「この人がいると安心する」と言われる。スピードより深度。",
+    stress:"器そのものを替えられる場で消耗する。守ってきた土台が崩されると、中の熱まで冷めてしまう。",
     growth:"長期的な視点と積み重ねが、揺るぎない場を作る。時間を味方にした人にしか出せない深みがある。"};
 
   const MISO={name:"味噌タイプ",en:"Miso",kingdom:"複合",
@@ -779,20 +817,21 @@ function getArchetype(top,second){
     'exp_ac': WILDYEAST,
     'exp_co': LACTO,
     'exp_di': AOKABI,
-    'exp_ma': WILDYEAST,
+    'exp_ma': KOJI,   // 胞子で広がり、根を張り、境界を溶かす（2026-09-29 天然酵母から麹へ）
     'di_exp': AOKABI,
     'di_co':  SHIO,
-    'di_ac':  KOJI,
+    'di_ac':  SHIO,   // 白黒をつけた後、馴染んで一つになる（2026-09-30 味噌から塩へ）
     'di_ma':  KYOKAI,
     'co_di':  RAKUSAN,
     'co_ma':  NATTO,
-    'co_ac':  NUKAZUKE,
+    'co_ac':  SHIROKABI,   // こだわりの芯＋穏やかな受け入れ（2026-09-30 糠床から白カビへ）
     'co_exp': LACTO,
     'ma_di':  KYOKAI,
     'ma_co':  NATTO,
     'ma_ac':  OKE,
     'ma_exp': OKE,
   };
+  if(balanced) return MISO;
   return m[k]||MISO;
 }
 
@@ -833,9 +872,9 @@ const ROLE_HINTS = {
     scene:"文化祭の企画の一番手。部活の新しい練習法の提案。誰もやっていない組み合わせを試すこと。あなたが飛び込むと、場に化学反応が起きます。",
     drain:"同じ手順を正確に繰り返すだけの役が続くと、力が抜けていきます。やり切る相棒（保全性タイプ）と組むと最強です。"},
   "乳酸菌タイプ": {
-    role:"「それ、ほんとに大丈夫？」を言える役",
-    scene:"班の計画の穴を先に見つける人。ディベートや批評。作品や企画の質をひと段階上げるチェック役。あなたの酸味が入ると、チームの成果物は確実に良くなります。",
-    drain:"「いいね」しか求められない場では持ち味が出せません。指摘は量より タイミングと言い方で効かせるのがコツです。"},
+    role:"どんなグループにもすっと入れて、空気が悪くならないように守る役",
+    scene:"気まずくなりそうなグループに入って、自然に話をつなぐ人。",
+    drain:"一人で黙々とやるだけの場では、力が出にくい。"},
   "納豆菌タイプ": {
     role:"最後までやり抜く役",
     scene:"受験勉強や長距離走のような長期戦。ひとつの研究・作品を何ヶ月もかけて育てること。みんなが諦めかけた企画の立て直し。あなたの粘りは、簡単には死なない生命力です。",
@@ -909,7 +948,8 @@ function calcCareerHypotheses(r){
   const MBTI_LABEL={E:"外向性（人と関わって充電するタイプ）",I:"内向性（一人で深めるタイプ）",S:"感覚型（具体・実際から考える）",N:"直感型（全体像・可能性から考える）",T:"思考型（論理で判断する）",F:"感情型（人の気持ちで判断する）",J:"計画型",P:"柔軟型"};
   const scored=CAREER_CLUSTERS.map(cl=>{
     let score=0; const why=[];
-    Object.entries(cl.sf||{}).forEach(([k,w])=>{const c=w*(r.sfA[k]||0); score+=c; if(c>=2.2) why.push({c,txt:`強みの向き「${SF_NAMES[k]}」`});});
+    // sfA は 2026-09-30 から 0〜15点（上位5資質の順位の重み）。以前の1〜5点の物差しにそろえるため3で割る
+    Object.entries(cl.sf||{}).forEach(([k,w])=>{const c=w*(r.sfA[k]||0)/3; score+=c; if(c>=2.2) why.push({c,txt:`強みの向き「${SF_NAMES[k]}」`});});
     Object.entries(cl.ffs||{}).forEach(([k,w])=>{const c=w*(r.ffsA[k]||0); score+=c; if(c>=1.4) why.push({c,txt:`${FFS_NAMES[k]}の高さ`});});
     Object.entries(cl.mbti||{}).forEach(([L,w])=>{const a=mbAxes[L]; if(r.mbtiB[a[0]]===L){const c=w*Math.min(r.mbtiB[a[1]],6)/6*1.5; score+=c; if(c>=0.8) why.push({c,txt:MBTI_LABEL[L]});}});
     (cl.themes||[]).forEach(t=>{if(themeRank[t]){const c=themeRank[t]*0.6; score+=c; why.push({c,txt:`上位資質「${T[t]||t}」`});}});
@@ -992,13 +1032,17 @@ function calcResults(){
   });
 
   const cAvg=cS.length?Math.round(cS.reduce((a,b)=>a+b,0)/cS.length):250;
-  const mbti=(ei>=0?'E':'I')+(sn>=0?'S':'N')+(tf>=0?'T':'F')+(jp>=0?'J':'P');
-  const mbtiB={ei:Math.abs(ei),eiP:ei>=0?'E':'I',sn:Math.abs(sn),snP:sn>=0?'S':'N',
-                tf:Math.abs(tf),tfP:tf>=0?'T':'F',jp:Math.abs(jp),jpP:jp>=0?'J':'P'};
-  let sfA={};['ex','in','rb','st'].forEach(k=>{sfA[k]=sfC[k]?sf[k]/sfC[k]:0;});
-  const sfS=Object.entries(sfA).sort((a,b)=>b[1]-a[1]);
+  // 16性格：0点（真ん中）は公式MBTIの採点にそろえてI・N・F・Pにし、midに印を残す（2026-09-30）
+  const mbti=(ei>0?'E':'I')+(sn>0?'S':'N')+(tf>0?'T':'F')+(jp>0?'J':'P');
+  const mbtiB={ei:Math.abs(ei),eiP:ei>0?'E':'I',sn:Math.abs(sn),snP:sn>0?'S':'N',
+                tf:Math.abs(tf),tfP:tf>0?'T':'F',jp:Math.abs(jp),jpP:jp>0?'J':'P'};
+  mbtiB.mid=['ei','sn','tf','jp'].filter(k=>mbtiB[k]===0);
   let ffsA={};['ac','ma','exp','di','co'].forEach(k=>{ffsA[k]=ffsC[k]?ffs[k]/ffsC[k]:0;});
-  const topThemes=Object.entries(themes).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const topThemes=rankThemes(themes,state.answers).slice(0,5);
+  const dom=rankDomains(topThemes);
+  const sfA=dom.sc; // 0〜15点（上位5資質の順位の重みの合計）
+  const sfS=dom.order.map(k=>[k,sfA[k]]);
+  const sfTied=sfS[0][1]===sfS[1][1];
   // 構造的バイアス補正: 設問設計上 di・exp の全選択肢平均が ac・ma より高いため
   // ランキング用スコアのみ正規化（表示用 ffsA はそのまま）
   // 定数 = 全選択肢平均(2.4572) / 各因子の全選択肢平均
@@ -1010,11 +1054,13 @@ function calcResults(){
   const ffsTied=Math.abs(ffsRaw[0][1]-ffsRaw[1][1])<0.001||Math.abs(ffsRaw[1][1]-ffsRaw[2][1])<0.001;
   const ffsForRank=ffsTied?ffsAdjust(ffsNormA,mbti,themes):ffsNormA;
   const ffsS=Object.entries(ffsForRank).sort((a,b)=>b[1]-a[1]);
+  const ffsNv=Object.values(ffsNormA);
+  const ffsBalanced=Math.max(...ffsNv)-Math.min(...ffsNv)<=MISO_SPREAD;
   const angerType=calcAngerType(angerCounts);
 
-  return{cAvg,mbti,mbtiB,sfA,sfTop:sfS[0][0],sfSecond:sfS[1][0],
-         ffsA,ffsTop:ffsS[0][0],ffsSecond:ffsS[1][0],topThemes,
-         ffsTied,angerType,angerCounts};
+  return{cAvg,mbti,mbtiB,sfA,sfTop:sfS[0][0],sfSecond:sfS[1][0],sfTied,
+         ffsA,ffsTop:ffsS[0][0],ffsSecond:ffsS[1][0],topThemes,themesAll:themes,
+         ffsTied,ffsBalanced,angerType,angerCounts};
 }
 
 // ── RENDER ────────────────────────────────────────
@@ -1111,7 +1157,7 @@ function renderQuestion(){
 
 function selectOpt(qid,di){
   const q=Q.find(x=>x.id===qid);
-  const chosen=getShuffled(q)[di];
+  const chosen=(q.fc?q.opts:getShuffled(q))[di]; // 二択は固定表示なので、表示と同じ並びから取る（2026-09-30）
   state.answers[qid]=chosen;
   document.querySelectorAll('.opt').forEach(b=>b.classList.remove('selected'));
   document.querySelectorAll('.opt')[di].classList.add('confirmed');
@@ -1147,11 +1193,11 @@ function renderResults(){
   const r=calcResults();
   state.lastResult=r;
   const stage=getStage(r.cAvg);
-  const arc=getArchetype(r.ffsTop,r.ffsSecond);
+  const arc=getArchetype(r.ffsTop,r.ffsSecond,r.ffsBalanced);
   const mbtiName=MBTI_NAMES[r.mbti]||r.mbti;
   const today=new Date().toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric'});
   const ffsS=Object.entries(r.ffsA).sort((a,b)=>b[1]-a[1]);
-  const sfS=Object.entries(r.sfA).sort((a,b)=>b[1]-a[1]);
+  const sfS=rankDomains(r.topThemes).order.map(k=>[k,r.sfA[k]]);
   const maxFfs=ffsS[0][1]||1, maxSf=sfS[0][1]||1;
 
   const msg=buildMessage(r);
@@ -1179,13 +1225,13 @@ function renderResults(){
     </div>
 
     <div class="card">
-      <div class="card-label">思考回路 — MBTIタイプ</div>
+      <div class="card-label">思考回路 — 16性格タイプ（簡易版）</div>
       <div class="card-main">${r.mbti} <span style="font-size:15px;font-weight:400;color:#777">— ${mbtiName}</span></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;font-size:13px">
-        <div>${r.mbtiB.eiP==='E'?'<b>E</b> 外向':'E 外向'} / ${r.mbtiB.eiP==='I'?'<b>I</b> 内向':'I 内向'}</div>
-        <div>${r.mbtiB.snP==='S'?'<b>S</b> 感覚':'S 感覚'} / ${r.mbtiB.snP==='N'?'<b>N</b> 直感':'N 直感'}</div>
-        <div>${r.mbtiB.tfP==='T'?'<b>T</b> 思考':'T 思考'} / ${r.mbtiB.tfP==='F'?'<b>F</b> 感情':'F 感情'}</div>
-        <div>${r.mbtiB.jpP==='J'?'<b>J</b> 計画':'J 計画'} / ${r.mbtiB.jpP==='P'?'<b>P</b> 柔軟':'P 柔軟'}</div>
+        <div>${r.mbtiB.eiP==='E'?'<b>E</b> 外向':'E 外向'} / ${r.mbtiB.eiP==='I'?'<b>I</b> 内向':'I 内向'}${r.mbtiB.mid&&r.mbtiB.mid.includes('ei')?'<span style="font-size:11px;color:#999">（ほぼ真ん中）</span>':''}</div>
+        <div>${r.mbtiB.snP==='S'?'<b>S</b> 感覚':'S 感覚'} / ${r.mbtiB.snP==='N'?'<b>N</b> 直感':'N 直感'}${r.mbtiB.mid&&r.mbtiB.mid.includes('sn')?'<span style="font-size:11px;color:#999">（ほぼ真ん中）</span>':''}</div>
+        <div>${r.mbtiB.tfP==='T'?'<b>T</b> 思考':'T 思考'} / ${r.mbtiB.tfP==='F'?'<b>F</b> 感情':'F 感情'}${r.mbtiB.mid&&r.mbtiB.mid.includes('tf')?'<span style="font-size:11px;color:#999">（ほぼ真ん中）</span>':''}</div>
+        <div>${r.mbtiB.jpP==='J'?'<b>J</b> 計画':'J 計画'} / ${r.mbtiB.jpP==='P'?'<b>P</b> 柔軟':'P 柔軟'}${r.mbtiB.mid&&r.mbtiB.mid.includes('jp')?'<span style="font-size:11px;color:#999">（ほぼ真ん中）</span>':''}</div>
       </div>
     </div>
 
@@ -1195,16 +1241,17 @@ function renderResults(){
         <div class="bar-row">
           <div class="bar-label">${SF_NAMES[k]}</div>
           <div class="bar-bg"><div class="bar-fill${i>0?' bar-fill-sub':''}" style="width:${v/maxSf*100}%"></div></div>
-          <div class="bar-val">${v.toFixed(1)}</div>
+          <div class="bar-val">${v}</div>
         </div>`).join('')}
       <div class="card-desc">
         <b>◎ ${SF_NAMES[r.sfTop]}</b>（最優位）— ${SF_DESC[r.sfTop]}<br>
-        <span style="color:#888">○ ${SF_NAMES[r.sfSecond]}（次点）</span>
+        <span style="color:#888">${r.sfTied?`◎ ${SF_NAMES[r.sfSecond]}（同順位）— ${SF_DESC[r.sfSecond]}`:`○ ${SF_NAMES[r.sfSecond]}（次点）`}</span>
+        <div style="color:#aaa;font-size:11px;margin-top:6px">上位5資質の順位で重みづけ（1位5点〜5位1点）</div>
       </div>
       ${r.topThemes.length?`
       <div style="margin-top:12px;border-top:1px solid #f0ece6;padding-top:10px">
         <div style="font-size:11px;color:#8b5e3c;letter-spacing:.1em;margin-bottom:6px">ESTIMATED TOP THEMES</div>
-        ${r.topThemes.map(([t,s],i)=>`<span class="theme-chip${i===0?' top':''}">${T[t]||t} ${i===0?'⭐':''}</span>`).join('')}
+        ${r.topThemes.map(([t,s])=>{const top=s===r.topThemes[0][1];return `<span class="theme-chip${top?' top':''}">${T[t]||t} ${top?'⭐':''}</span>`;}).join('')}
         <div style="font-size:11px;color:#aaa;margin-top:8px">※ あくまでも推定です。公式SF34テストとは異なります</div>
       </div>`:'' }
     </div>
@@ -1355,7 +1402,7 @@ async function submitResults(){
   state.submitted = true;
   const r=state.lastResult;
   if(!r) return;
-  const arc=getArchetype(r.ffsTop,r.ffsSecond);
+  const arc=getArchetype(r.ffsTop,r.ffsSecond,r.ffsBalanced);
   const stage=getStage(r.cAvg);
 
   // HTMLスナップショットを生成（結果画面の静的コピーとしてローカル保存する）
@@ -1403,7 +1450,7 @@ async function submitResults(){
 }
 
 function buildMessage(r){
-  const arc = getArchetype(r.ffsTop, r.ffsSecond);
+  const arc = getArchetype(r.ffsTop, r.ffsSecond, r.ffsBalanced);
   const stage = getStage(r.cAvg);
   const below200 = r.cAvg < 200;
   const boundary = r.cAvg >= 200 && r.cAvg < 225;
@@ -1453,7 +1500,7 @@ function buildMessage(r){
 // ── スクリーニングメモ生成（GAS送信用・本人非表示）────────
 function buildScreeningNote(r){
   if(r.cAvg >= 200) return '';
-  const arc   = getArchetype(r.ffsTop, r.ffsSecond);
+  const arc   = getArchetype(r.ffsTop, r.ffsSecond, r.ffsBalanced);
   const stage = getStage(r.cAvg);
   const sfNegLoop = {
     ex:"「動く」こと自体がエネルギー消耗の手段になる。方向性のないまま疲弊しやすい。",
@@ -1507,7 +1554,7 @@ function savePDF(){
 async function saveHTML(){
   const r = state.lastResult;
   if(!r){ setActionStatus('結果が見つかりません', false); return; }
-  const arc   = getArchetype(r.ffsTop, r.ffsSecond);
+  const arc   = getArchetype(r.ffsTop, r.ffsSecond, r.ffsBalanced);
   const stage = getStage(r.cAvg);
   const today = new Date().toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric'});
 
