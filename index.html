@@ -105,8 +105,10 @@ body{font-family:'Hiragino Kaku Gothic Pro','Noto Sans JP',system-ui,sans-serif;
 <div class="progress-label" id="plabel"></div>
 <div id="app"></div>
 <script>
-// Student版：ローカル完結。外部送信（GAS）・アクセスコード・サーバー連携はなし。
-// 結果は受診完了時にTSVとHTMLの2ファイルをダウンロードフォルダへ自動保存する。
+// Student版：アクセスコードなし。結果は受診完了時にTSVとHTMLの2ファイルをダウンロードフォルダへ自動保存し、
+// 同時に大人版と同じGASへ送って、蓄積シートの「学生」シートにためる（2026-10-13〜）。
+const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxxk-8TjM9zo7Qap1qMVvcuwtEfQAM2Q7k751VUESstHm2nU_VBLXu78B-sZR1WPf86zA/exec";
+const STUDENT_KEY = "kokoro_student";  // karte_backend.gs の PASSWORD_MAP で「学生」シートに対応
 
 // ── 質問データ（Student版：高校生の場面に翻訳。スコア・ベクトルは大人版と完全同一）──
 const S=[
@@ -1091,7 +1093,8 @@ function renderWelcome(){
       頭で考えすぎず、最初に浮かんだ感覚で選んでください。<br><br>
       5つのテーマ、15〜20分ほどかけてどうぞ。<br><br>
       意識レベル・思考回路・強みの向き・動機の燃料・怒りの根っこ、<br>
-      5つの視点から「心のカルテ」を生成します。
+      5つの視点から「心のカルテ」を生成します。<br><br>
+      <span style="font-size:.9em;color:#8b5e3c">結果はカモシカのコンサルに届き、カルテ作りにだけ使います。</span>
     </p>
     <input class="name-input" type="text" id="nameInput" placeholder="お名前を入力してください" maxlength="30">
     <button class="btn" onclick="startAssessment()">はじめる</button>
@@ -1212,19 +1215,6 @@ function renderResults(){
     </div>
 
     <div class="card">
-      <div class="card-label">現在地 — 意識ステージ</div>
-      <span class="stage-badge" style="background:${stage.badge}20;color:#555;border:1.5px solid ${stage.badge}">
-        ${stage.emoji} ${stage.name} / ${stage.en}
-      </span>
-      <div class="card-main" style="font-size:36px;color:#8b5e3c;margin:4px 0">${r.cAvg}</div>
-      <div class="card-desc">${stage.desc}</div>
-      <div style="margin-top:14px">
-        <button class="toggle-btn" onclick="toggleTable()">▼ 意識レベル全16段階を見る</button>
-        <div id="ctable" style="display:none;margin-top:8px">${buildStageTable(r.cAvg)}</div>
-      </div>
-    </div>
-
-    <div class="card">
       <div class="card-label">思考回路 — 16性格タイプ（簡易版）</div>
       <div class="card-main">${r.mbti} <span style="font-size:15px;font-weight:400;color:#777">— ${mbtiName}</span></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;font-size:13px">
@@ -1250,20 +1240,23 @@ function renderResults(){
       </div>
       ${r.topThemes.length?`
       <div style="margin-top:12px;border-top:1px solid #f0ece6;padding-top:10px">
-        <div style="font-size:11px;color:#8b5e3c;letter-spacing:.1em;margin-bottom:6px">ESTIMATED TOP THEMES</div>
-        ${r.topThemes.map(([t,s])=>{const top=s===r.topThemes[0][1];return `<span class="theme-chip${top?' top':''}">${T[t]||t} ${top?'⭐':''}</span>`;}).join('')}
+        <div style="font-size:12px;color:#8b5e3c;letter-spacing:.1em;margin-bottom:8px">あなたの強み 上位5つ</div>
+        <ol style="list-style:none;padding:0;margin:0">
+        ${r.topThemes.map(([t,sc],i)=>{const top=sc===r.topThemes[0][1];return `<li style="display:flex;align-items:baseline;gap:12px;padding:7px 0;border-bottom:1px solid #f0ece6"><span style="font-size:14px;color:#b9a48c;font-weight:700;min-width:1.4em">${i+1}</span><span style="font-size:${i===0?'24px':'20px'};font-weight:700;color:${top?'#8b5e3c':'#3a2a1a'}">${T[t]||t}${top?' ⭐':''}</span></li>`;}).join('')}
+        </ol>
         <div style="font-size:11px;color:#aaa;margin-top:8px">※ あくまでも推定です。公式SF34テストとは異なります</div>
       </div>`:'' }
     </div>
 
     <div class="card">
-      <div class="card-label">動機の燃料 — FFS5因子</div>
-      ${ffsS.map(([k,v],i)=>`
-        <div class="bar-row">
-          <div class="bar-label">${FFS_NAMES[k]}</div>
-          <div class="bar-bg"><div class="bar-fill${i>0?' bar-fill-sub':''}" style="width:${v/maxFfs*100}%"></div></div>
-          <div class="bar-val">${v.toFixed(1)}</div>
-        </div>`).join('')}
+      <div class="card-label">動機の燃料 — 5つの力</div>
+      ${(()=>{const keys=['co','ac','di','exp','ma'];const vals=keys.map(k=>r.ffsA[k]);
+        const rank=k=>vals.filter(v=>v>r.ffsA[k]).length;
+        return `<div style="display:grid;grid-template-columns:repeat(5,1fr);border:1px solid #000;margin-top:8px;text-align:center">
+        ${keys.map(k=>`<div style="background:#000;color:#fff;font-weight:700;font-size:13px;padding:6px 2px">${FFS_NAMES[k]}</div>`).join('')}
+        ${keys.map(k=>{const rk=rank(k);const c=rk===0?'#C00000':rk===1?'#2E75B6':'#AAAAAA';return `<div style="font-size:24px;font-weight:700;color:${c};padding:10px 2px;border-right:1px solid #eee">${r.ffsA[k].toFixed(1)}</div>`;}).join('')}
+        </div>
+        <div style="font-size:11px;color:#aaa;margin-top:8px"><span style="color:#C00000">●</span> いちばん強い力　<span style="color:#2E75B6">●</span> 2番目</div>`;})()}
     </div>
 
     <div class="card">
@@ -1353,7 +1346,7 @@ function renderResults(){
     <div id="action-status" style="font-size:12px;color:#888;margin-top:8px;min-height:18px;text-align:center"></div>
 
   </div>`;
-  submitResults();  // 結果表示と同時にTSV+HTMLを自動保存（ローカルのみ・外部送信なし）
+  submitResults();  // 結果表示と同時にTSV+HTMLを自動保存し、学生シートへ送る
 }
 
 function toggleTable(){
@@ -1446,6 +1439,26 @@ async function submitResults(){
     console.warn('保存エラー:', e.message);
     console.log('結果TSV:', tsvRow);
     showToast('❌ 自動保存に失敗しました。コンソールにTSVを出力しています','err');
+  }
+
+  // ── 蓄積シート「学生」へ送る（大人版と同じ項目）──
+  const payload={
+    name:state.userName, password:STUDENT_KEY,
+    cAvg:r.cAvg, stage:stage.name, mbti:r.mbti, mbtiB:r.mbtiB,
+    sfTop:r.sfTop, sfSecond:r.sfSecond, sfA:r.sfA,
+    themes:r.topThemes, themesAll:r.themesAll,
+    ffsTop:r.ffsTop, ffsSecond:r.ffsSecond, ffsA:r.ffsA,
+    archetype:arc.name,
+    is_below_200: r.cAvg < 200, anger_type: r.angerType,
+    screening_note: buildScreeningNote(r),
+    html: _htmlSnap,
+  };
+  try{
+    const res=await fetch(GAS_ENDPOINT,{method:'POST',body:JSON.stringify(payload)});
+    const json=await res.json();
+    if(json.status!=='ok') console.warn('記録エラー:', json.message);
+  }catch(e){
+    console.warn('送信エラー:', e.message);
   }
 }
 
